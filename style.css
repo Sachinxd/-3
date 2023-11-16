@@ -1,0 +1,62 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 400px;
+  }
+  
+  header {
+    background: #ff6f61; /* Coral color */
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  section {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  p {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .birthday-message {
+    font-size: 28px;
+    color: #ff6f61;
+    margin-bottom: 10px;
+  }
+  
+  .confetti {
+    position: relative;
+    height: 12px;
+    width: 12px;
+    background-color: #ff6f61;
+    border-radius: 50%;
+    animation: confetti-fall 1s linear infinite;
+  }
+  
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+  
