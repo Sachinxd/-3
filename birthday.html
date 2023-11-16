@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Helvetica', sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 400px;
+    }
+
+    header {
+      background: #ff6f61; /* Coral color */
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 20px;
+      text-align: center;
+    }
+
+    p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .birthday-message {
+      font-size: 28px;
+      color: #ff6f61;
+      margin-bottom: 10px;
+    }
+
+    .confetti {
+      position: relative;
+      height: 12px;
+      width: 12px;
+      background-color: #ff6f61;
+      border-radius: 50%;
+      animation: confetti-fall 1s linear infinite;
+    }
+
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+  <script>
+    function updateTimer() {
+      var targetDate = new Date("November 17, 2023 00:00:00").getTime();
+      var currentDate = new Date().getTime();
+      var timeRemaining = targetDate - currentDate;
+
+      if (timeRemaining > 0) {
+        var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        // Add leading zeros to minutes, seconds, and hours if they are less than 10
+        hours = (hours < 10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+
+        var timeString = days + "D " + hours + ":" + minutes + ":" + seconds;
+        document.getElementById("timer").innerHTML = timeString;
+
+        // Update every second
+        setTimeout(updateTimer, 1000);
+      } else {
+        document.getElementById("timer").innerHTML = "Happy Birthday Aryan Janu!";
+        document.getElementById("birthday-container").style.display = "block";
+      }
+    }
+
+    // Initial call to display the timer
+    window.onload = updateTimer;
+  </script>
+  <title>Page Refresh in</title>
+</head>
+<body>
+  <div id="birthday-container" class="container" style="display: none;">
+    <header>
+      Happy Birthday Aryan Janu!
+    </header>
+    <section>
+      <p class="birthday-message">Wishing you a day filled with joy and laughter!</p>
+      <div class="confetti"></div>
+    </section>
+  </div>
+
+  <div class="container">
+    <header>
+      Page Refresh in
+    </header>
+    <section>
+      <p id="timer" style="font-size: 20px; color: #555; margin-top: 10px;"></p>
+    </section>
+  </div>
+</body>
+</html>
